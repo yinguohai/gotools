@@ -34,8 +34,11 @@ func ColumeMap(params []map[string]string, col string) []string {
 	return result
 }
 
-/**
-	逻辑线程是否都执行完了
+/*
+	判断所有的协程是否都运行完了，
+	@param ch 是一个bool类型的channel , 它里面的值需要运行的协程运行完后就要往里面添加一个true
+	@param num 记录哪些goroutine 使用了 ch
+	@param timeout 表示超时时长
  */
 func IsDoneChan(ch chan bool, num int, timeout int) bool {
 	flag := 0
